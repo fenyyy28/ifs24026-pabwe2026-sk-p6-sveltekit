@@ -35,9 +35,9 @@
 		{/if}
 
 		<div>
-			<label for="email" class="mb-1 block text-sm font-medium">Email</label>
+			<label for="login-email-input" class="mb-1 block text-sm font-medium">Email</label>
 			<input
-				id="email"
+				id="login-email-input"
 				type="email"
 				bind:value={$email}
 				class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-indigo-500"
@@ -46,9 +46,9 @@
 		</div>
 
 		<div>
-			<label for="password" class="mb-1 block text-sm font-medium">Kata sandi</label>
+			<label for="login-password-input" class="mb-1 block text-sm font-medium">Kata sandi</label>
 			<input
-				id="password"
+				id="login-password-input"
 				type="password"
 				bind:value={$password}
 				class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-indigo-500"
@@ -57,6 +57,7 @@
 		</div>
 
 		<button
+			id="login-submit-button"
 			type="submit"
 			disabled={authStore.loading}
 			class="w-full rounded-lg bg-indigo-600 py-2 font-medium text-white hover:bg-indigo-700 disabled:opacity-60"
