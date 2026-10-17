@@ -55,7 +55,13 @@
 
 		<CourseCover cover={previewUrl ?? currentCover} class="h-40 rounded-lg" />
 
-		<input type="file" accept="image/*" onchange={pickFile} class="text-sm" />
+		<input
+			type="file"
+			accept="image/*"
+			aria-label="Pilih gambar sampul"
+			onchange={pickFile}
+			class="text-sm"
+		/>
 		{#if localError}<p class="text-sm text-red-600">{localError}</p>{/if}
 
 		<div class="flex justify-end gap-2">

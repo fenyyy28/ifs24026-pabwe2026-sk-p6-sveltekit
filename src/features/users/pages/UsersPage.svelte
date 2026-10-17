@@ -34,7 +34,7 @@
 		<ul class="divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white">
 			{#each filtered as user (user.id)}
 				<li class="flex items-center gap-3 p-4">
-					<UserAvatar name={user.name} photo={user.photo} />
+					<UserAvatar name={user.name} photo={user.photo} decorative />
 					<div class="min-w-0">
 						<p class="truncate font-medium text-slate-900">
 							<span>{user.name}</span>

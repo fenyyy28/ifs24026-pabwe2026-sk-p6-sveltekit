@@ -28,7 +28,7 @@
 			{#if authStore.user}
 				<div class="flex items-center gap-4">
 					<a href="/profile" class="flex items-center gap-2 text-sm text-slate-700 hover:text-indigo-600">
-						<UserAvatar name={authStore.user.name} photo={authStore.user.photo} size={32} />
+						<UserAvatar name={authStore.user.name} photo={authStore.user.photo} size={32} decorative />
 						<span class="hidden sm:inline">{authStore.user.name}</span>
 					</a>
 					<button

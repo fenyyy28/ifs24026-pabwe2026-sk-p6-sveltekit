@@ -24,6 +24,15 @@ describe('UserAvatar', () => {
 		expect(img).toHaveStyle({ width: '64px', height: '64px' });
 	});
 
+	it('memakai alt kosong jika dekoratif (nama sudah tertulis di dekatnya)', () => {
+		const { container } = render(UserAvatar, {
+			props: { name: 'Ani', photo: 'http://x.test/a.png', decorative: true }
+		});
+
+		expect(container.querySelector('img')).toHaveAttribute('alt', '');
+		expect(screen.queryByRole('img', { name: 'Ani' })).not.toBeInTheDocument();
+	});
+
 	it('kembali ke inisial jika foto gagal dimuat', async () => {
 		render(UserAvatar, { props: { name: 'Budi', photo: 'http://x.test/rusak.png' } });
 

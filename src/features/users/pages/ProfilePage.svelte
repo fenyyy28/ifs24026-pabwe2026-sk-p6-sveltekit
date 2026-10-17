@@ -139,7 +139,13 @@
 				photo={previewUrl ?? authStore.user?.photo}
 				size={72}
 			/>
-			<input type="file" accept="image/*" onchange={pickFile} class="text-sm" />
+			<input
+				type="file"
+				accept="image/*"
+				aria-label="Pilih foto profil"
+				onchange={pickFile}
+				class="text-sm"
+			/>
 		</div>
 		{#if photoError}<p class="text-sm text-red-600">{photoError}</p>{/if}
 

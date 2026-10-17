@@ -25,10 +25,6 @@
 	const course = $derived(coursesStore.course?.id === courseId ? coursesStore.course : null);
 	const pageTitle = $derived(`${course?.title ?? 'Detail Kursus'} | Delcom Courses`);
 
-	$effect(() => {
-		document.title = pageTitle;
-	});
-
 	let showEdit = $state(false);
 	let showCover = $state(false);
 	let contentModal = $state<{ content?: CourseContent } | null>(null);
@@ -74,6 +70,8 @@
 		}
 	}
 </script>
+
+<svelte:head><title>{pageTitle}</title></svelte:head>
 
 <a href="/" class="mb-4 inline-block text-sm text-indigo-600 hover:underline">&larr; Semua Kursus</a>
 
@@ -133,7 +131,7 @@
 
 			<div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-600">
 				<span class="inline-flex items-center gap-2">
-					<UserAvatar name={course.author.name} photo={course.author.photo} size={24} />
+					<UserAvatar name={course.author.name} photo={course.author.photo} size={24} decorative />
 					<span>{course.author.name}</span>
 				</span>
 				<span class="inline-flex items-center gap-1">
@@ -147,7 +145,7 @@
 						>{course.avg_ratings ? formatRating(course.avg_ratings) : 'Belum ada rating'}</span
 					>
 				</span>
-				<span class="text-slate-400">{`Dibuat ${formatDate(course.created_at)}`}</span>
+				<span class="text-slate-600">{`Dibuat ${formatDate(course.created_at)}`}</span>
 			</div>
 
 			{#if role === 'student'}
@@ -181,10 +179,10 @@
 				<ul class="divide-y divide-slate-100">
 					{#each course.contents as content, i (content.id)}
 						<li class="flex items-center gap-3 py-3">
-							<span class="w-6 text-sm text-slate-400">{i + 1}</span>
+							<span class="w-6 text-sm text-slate-600">{i + 1}</span>
 
 							{#if role === 'visitor'}
-								<span class="flex flex-1 items-center gap-2 text-slate-400">
+								<span class="flex flex-1 items-center gap-2 text-slate-600">
 									<Lock size={16} /><span>{content.title}</span>
 								</span>
 							{:else}

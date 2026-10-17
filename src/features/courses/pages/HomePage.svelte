@@ -109,7 +109,7 @@
 						<p class="line-clamp-2 text-sm text-slate-500">{course.description}</p>
 
 						<div class="flex items-center gap-2 text-sm text-slate-600">
-							<UserAvatar name={course.author.name} photo={course.author.photo} size={24} />
+							<UserAvatar name={course.author.name} photo={course.author.photo} size={24} decorative />
 							<span class="truncate">{course.author.name}</span>
 						</div>
 

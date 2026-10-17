@@ -2,8 +2,9 @@
 	let {
 		name,
 		photo = null,
-		size = 40
-	}: { name: string; photo?: string | null; size?: number } = $props();
+		size = 40,
+		decorative = false
+	}: { name: string; photo?: string | null; size?: number; decorative?: boolean } = $props();
 
 	let failed = $state(false);
 	const initial = $derived(name?.trim().charAt(0).toUpperCase() || '?');
@@ -17,7 +18,7 @@
 {#if photo && !failed}
 	<img
 		src={photo}
-		alt={name}
+		alt={decorative ? '' : name}
 		class="shrink-0 rounded-full object-cover"
 		style="width:{size}px;height:{size}px"
 		onerror={() => (failed = true)}
