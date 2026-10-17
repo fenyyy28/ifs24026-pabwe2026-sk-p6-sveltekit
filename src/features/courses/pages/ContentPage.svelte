@@ -13,10 +13,6 @@
 	const content = $derived(coursesStore.content?.id === contentId ? coursesStore.content : null);
 
 	$effect(() => {
-		document.title = `${content?.title ?? 'Konten'} | Delcom Courses`;
-	});
-
-	$effect(() => {
 		const cId = courseId;
 		const ctId = contentId;
 		if (authStore.ready && authStore.user) {
@@ -31,6 +27,8 @@
 		await coursesStore.setContentStatus(courseId, contentId, target.my_status_finished ? 0 : 1);
 	}
 </script>
+
+<svelte:head><title>{`${content?.title ?? 'Konten'} | Delcom Courses`}</title></svelte:head>
 
 <a
 	href={`/courses/${courseId}`}

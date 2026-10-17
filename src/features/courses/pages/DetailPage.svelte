@@ -23,7 +23,6 @@
 	let { courseId }: { courseId: number } = $props();
 
 	const course = $derived(coursesStore.course?.id === courseId ? coursesStore.course : null);
-	const pageTitle = $derived(`${course?.title ?? 'Detail Kursus'} | Delcom Courses`);
 
 	let showEdit = $state(false);
 	let showCover = $state(false);
@@ -71,7 +70,7 @@
 	}
 </script>
 
-<svelte:head><title>{pageTitle}</title></svelte:head>
+<svelte:head><title>{`${course?.title ?? 'Detail Kursus'} | Delcom Courses`}</title></svelte:head>
 
 <a href="/" class="mb-4 inline-block text-sm text-indigo-600 hover:underline">&larr; Semua Kursus</a>
 
